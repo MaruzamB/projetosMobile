@@ -45,26 +45,26 @@ public class MainActivity extends AppCompatActivity {
 
         pessoa = new Pessoa();
 
-        pessoa.setPrimeiroNome("Maruzam");
-        pessoa.setSobreNome("Junior");
-        pessoa.setCursoDesejado("PHP");
-        pessoa.setTelefoneContato("99-99999999");
 
-        outraPessoa = new Pessoa();
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome","NA"));
+        pessoa.setSobreNome(preferences.getString("Sobrenome","NA"));
+        pessoa.setCursoDesejado(preferences.getString("CursoDesejado","NA"));
+        pessoa.setTelefoneContato(preferences.getString("Telefone","NA"));
+
 
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
         editSobrenome = findViewById(R.id.editSobrenome);
         editCursoDesejado = findViewById(R.id.editCursoDesejado);
         editTelefoneContato = findViewById(R.id.editTelefoneContato);
 
-        btnLimpar = findViewById(R.id.btnLimpar);
-        btnSalvar = findViewById(R.id.btnSalvar);
-        btnFinalizar = findViewById(R.id.btnFinalizar);
-
         editPrimeiroNome.setText(pessoa.getPrimeiroNome());
         editSobrenome.setText(pessoa.getSobreNome());
         editCursoDesejado.setText(pessoa.getCursoDesejado());
         editTelefoneContato.setText(pessoa.getTelefoneContato());
+
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 pessoa.setPrimeiroNome(editPrimeiroNome.getText().toString());
                 pessoa.setSobreNome(editSobrenome.getText().toString());
                 pessoa.setCursoDesejado(editCursoDesejado.getText().toString());
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Log.i("POOAndroid", pessoa.toString());
-        Log.i("POOAndroid", outraPessoa.toString());
+
 
     }
 }
