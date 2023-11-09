@@ -54,7 +54,6 @@ public class PessoaController {
         listaVip.clear();
         listaVip.apply();
 
-
     }
 
 }
