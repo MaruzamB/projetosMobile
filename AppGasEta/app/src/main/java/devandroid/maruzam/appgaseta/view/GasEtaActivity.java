@@ -12,9 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.maruzam.appgaseta.R;
+import devandroid.maruzam.appgaseta.model.Combustivel;
 import devandroid.maruzam.appgaseta.util.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    Combustivel combustivelEtanol;
+    Combustivel combustivelGasolina;
 
     //Declaração dos Atributos
 
@@ -84,6 +88,22 @@ public class GasEtaActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //TODO: Desabilitar o botão salvar.
+
+                combustivelEtanol = new Combustivel();
+                combustivelGasolina = new Combustivel();
+
+                combustivelEtanol.setNomeCombustivel("Etanol");
+                combustivelEtanol.setPrecoCombustivel(precoEtanol);
+
+                combustivelGasolina.setNomeCombustivel("Gasolina");
+                combustivelGasolina.setPrecoCombustivel(precoGasolina);
+
+                combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+                combustivelGasolina .setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+
+                int parada = 0;
 
            }
 
