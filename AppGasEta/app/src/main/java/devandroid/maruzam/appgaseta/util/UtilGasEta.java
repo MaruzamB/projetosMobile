@@ -19,9 +19,9 @@ public class UtilGasEta {
         String mensagemRetorno;
 
         if (etanol <= precoIdeal) {
-            mensagemRetorno = "Abastecer com etanol";
+            mensagemRetorno = "Abastecer com Etanol";
         }else {
-            mensagemRetorno = "Abastecer com Gasoina";
+            mensagemRetorno = "Abastecer com Gasolina";
         }
         return mensagemRetorno;
     }
