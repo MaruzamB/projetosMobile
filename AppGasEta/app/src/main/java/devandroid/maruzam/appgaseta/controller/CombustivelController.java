@@ -23,6 +23,11 @@ public class CombustivelController {
         dadosPreferences.apply();
 
     }
+    public void limpar(){
+
+        dadosPreferences.clear();
+        dadosPreferences.apply();
+    }
 
 
 

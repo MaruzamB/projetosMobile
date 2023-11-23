@@ -45,6 +45,8 @@ public class GasEtaActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_gaseta);
 
+        controller = new CombustivelController(GasEtaActivity.this);
+
         //associar ligações com id
         editGasolina = findViewById(R.id.editGasolina);
         editEtanol = findViewById(R.id.editEtanol);
@@ -95,7 +97,7 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                controller = new CombustivelController(GasEtaActivity.this);
+
 
                 combustivelEtanol = new Combustivel();
                 combustivelGasolina = new Combustivel();
@@ -125,6 +127,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 editGasolina.setText("");
 
                 btnSalvar.setEnabled(false);
+
+                controller.limpar();
 
             }
         });
