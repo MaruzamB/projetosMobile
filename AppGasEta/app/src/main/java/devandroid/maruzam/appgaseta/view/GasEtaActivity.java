@@ -12,10 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import devandroid.maruzam.appgaseta.R;
+import devandroid.maruzam.appgaseta.controller.CombustivelController;
 import devandroid.maruzam.appgaseta.model.Combustivel;
 import devandroid.maruzam.appgaseta.util.UtilGasEta;
 
 public class GasEtaActivity extends AppCompatActivity {
+
+    CombustivelController controller;
 
     Combustivel combustivelEtanol;
     Combustivel combustivelGasolina;
@@ -41,6 +44,8 @@ public class GasEtaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_gaseta);
+
+        controller = new CombustivelController(GasEtaActivity.this);
 
         //associar ligações com id
         editGasolina = findViewById(R.id.editGasolina);
@@ -92,8 +97,7 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //TODO: Desabilitar o botão salvar.
-                //TODO:EditText inputType
+
 
                 combustivelEtanol = new Combustivel();
                 combustivelGasolina = new Combustivel();
@@ -106,6 +110,9 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 combustivelEtanol.setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
                 combustivelGasolina .setRecomendacao(UtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+
+                controller.salvar(combustivelEtanol);
+                controller.salvar(combustivelGasolina);
 
                 int parada = 0;
 
@@ -120,6 +127,8 @@ public class GasEtaActivity extends AppCompatActivity {
                 editGasolina.setText("");
 
                 btnSalvar.setEnabled(false);
+
+                controller.limpar();
 
             }
         });
