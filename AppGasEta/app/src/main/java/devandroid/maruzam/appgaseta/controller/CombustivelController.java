@@ -3,6 +3,8 @@ package devandroid.maruzam.appgaseta.controller;
 import android.content.ContentValues;
 import android.content.SharedPreferences;
 
+import java.util.List;
+
 import devandroid.maruzam.appgaseta.database.GasEtaDB;
 import devandroid.maruzam.appgaseta.model.Combustivel;
 import devandroid.maruzam.appgaseta.view.GasEtaActivity;
@@ -34,6 +36,11 @@ public class CombustivelController extends GasEtaDB {
 
         salvarObjeto("Combustivel", dados);
 
+    }
+
+    public List<Combustivel> getListaDados(){
+
+        return listarDados();
 
 
     }
