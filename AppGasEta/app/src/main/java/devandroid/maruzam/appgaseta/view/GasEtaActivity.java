@@ -58,6 +58,7 @@ public class GasEtaActivity extends AppCompatActivity {
         objAlteracao.setRecomendacao("Sai fora que é fria");
 
         //controller.alterar(objAlteracao);
+        controller.deletar(1);
 
 
         //associar ligações com id
