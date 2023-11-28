@@ -2,9 +2,18 @@ package devandroid.maruzam.appgaseta.model;
 
 public class Combustivel {
 
+    private int id;
     private String nomeCombustivel;
     private double precoCombustivel;
     private String recomendacao;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNomeCombustivel() {
         return nomeCombustivel;

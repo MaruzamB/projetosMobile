@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.List;
+
 import devandroid.maruzam.appgaseta.R;
 import devandroid.maruzam.appgaseta.controller.CombustivelController;
 import devandroid.maruzam.appgaseta.model.Combustivel;
@@ -39,6 +41,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
 
+    List<Combustivel> dados;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,16 @@ public class GasEtaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gaseta);
 
         controller = new CombustivelController(GasEtaActivity.this);
+        dados = controller.getListaDados();
+
+        Combustivel objAlteracao = dados.get(12);
+        objAlteracao.setNomeCombustivel("Gasolina Adulterada");
+        objAlteracao.setPrecoCombustivel(8.99);
+        objAlteracao.setRecomendacao("Sai fora que é fria");
+
+        //controller.alterar(objAlteracao);
+        controller.deletar(1);
+
 
         //associar ligações com id
         editGasolina = findViewById(R.id.editGasolina);
